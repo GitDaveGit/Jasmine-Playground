@@ -4,8 +4,12 @@ function ToDo(){
 }
 
 
-ToDo.prototype.addTodo = function(item){
+ToDo.prototype.addItem = function(item){
   this.todo.push(item);
+};
+
+ToDo.prototype.deleteItemById = function(id){
+  this.todo = this.todo.filter(item => item.id !== id);
 };
 
 
@@ -21,9 +25,6 @@ ToDo.prototype.getItemByTitle = function(title){
 	return this.todo.filter(item => item.title == title);
 };
 
-ToDo.prototype.delete = function(id){
-  this.todo = this.todo.filter(item => item.id !== id);
-};
 
 
 ToDo.prototype.markIncomplete = function(id){
