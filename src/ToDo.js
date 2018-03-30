@@ -12,3 +12,7 @@ ToDo.prototype.addTodo = function(item){
 ToDo.prototype.getItems = function(){
   return this.todo;
 };
+
+ToDo.prototype.delete = function(id){
+  this.todo = this.todo.filter(item => item.id !== id);
+};
