@@ -13,6 +13,14 @@ ToDo.prototype.getItems = function(){
   return this.todo;
 };
 
+ToDo.prototype.getItemById = function(id){
+	return this.todo.filter(item => item.id == id);
+};
+
+ToDo.prototype.getItemByTitle = function(title){
+	return this.todo.filter(item => item.title == title);
+};
+
 ToDo.prototype.delete = function(id){
   this.todo = this.todo.filter(item => item.id !== id);
 };

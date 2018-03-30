@@ -15,6 +15,14 @@ describe('Testing the functionality, this is the checklist:', ()=>{
 
 	it('Should be able to add items', ()=>{
 		expect(todo.getItems().length).toBe(2);
+		
+		expect(todo.getItems().find(item => item.id == 1).id).toBe(1);
+		expect(todo.getItems().find(item => item.id == 1).title).toBe("get milk");
+		expect(todo.getItems().find(item => item.id == 1).complete).toBe(false);
+
+		expect(todo.getItems().find(item => item.id == 2).id).toBe(2);
+		expect(todo.getItems().find(item => item.id == 2).title).toBe("get eggs");
+		expect(todo.getItems().find(item => item.id == 2).complete).toBe(false);
 	});
 
 
@@ -35,6 +43,7 @@ describe('Testing the functionality, this is the checklist:', ()=>{
 
 		expect(todo.getItems().find(item => item.id == 1).complete).toBe(false);
 		expect(todo.getItems().find(item => item.id == 2).complete).toBe(true);
+
 
 	});
 
