@@ -1,24 +1,8 @@
 describe('Testing the functionality, this is the checklist:', ()=>{
 
-	it('Should know that true is true and false is false', ()=>{
-		expect(1==1).toBe(true);
-		expect(1==0).toBe(false);
-	});
+	let todo, item1, item2;
 
-
-	it('Should be able to add an item', ()=>{
-		todo = new ToDo();
-
-		expect(todo.getItems().length).toBe(0);
-
-		item = { id: 1, title: "get milk", complete: false };
-		todo.addTodo(item);
-
-		expect(todo.getItems().length).toBe(1);
-	});
-
-
-	it('Should be able to delete an item', ()=>{
+	beforeEach(function(){
 		todo = new ToDo();
 
 		item1 = { id: 1, title: "get milk", complete: false };
@@ -27,6 +11,14 @@ describe('Testing the functionality, this is the checklist:', ()=>{
 		todo.addTodo(item1);
 		todo.addTodo(item2);
 
+	});
+
+	it('Should be able to add items', ()=>{
+		expect(todo.getItems().length).toBe(2);
+	});
+
+
+	it('Should be able to delete an item', ()=>{
 		expect(todo.getItems().length).toBe(2);
 
 		todo.delete(2);
@@ -36,14 +28,6 @@ describe('Testing the functionality, this is the checklist:', ()=>{
 
 
 	it('Should be able to mark an item complete', ()=>{
-		todo = new ToDo();
-
-		item1 = { id: 1, title: "get milk", complete: false };
-		item2 = { id: 2, title: "get eggs", complete: false };
-
-		todo.addTodo(item1);
-		todo.addTodo(item2);
-
 		expect(todo.getItems().find(item => item.id == 1).complete).toBe(false);
 		expect(todo.getItems().find(item => item.id == 2).complete).toBe(false);
 
