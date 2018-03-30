@@ -16,3 +16,8 @@ ToDo.prototype.getItems = function(){
 ToDo.prototype.delete = function(id){
   this.todo = this.todo.filter(item => item.id !== id);
 };
+
+
+ToDo.prototype.markComplete = function(id){
+  this.todo.find(item => item.id == id).complete = true;
+};
