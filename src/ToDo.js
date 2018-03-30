@@ -9,7 +9,7 @@ ToDo.prototype.addTodo = function(item){
 };
 
 
-ToDo.prototype.getItems = function(){
+ToDo.prototype.getItems = function(){ 
   return this.todo;
 };
 
@@ -25,6 +25,10 @@ ToDo.prototype.delete = function(id){
   this.todo = this.todo.filter(item => item.id !== id);
 };
 
+
+ToDo.prototype.markIncomplete = function(id){
+	this.todo.find(item => item.id == id).complete = false;
+};
 
 ToDo.prototype.markComplete = function(id){
   this.todo.find(item => item.id == id).complete = true;

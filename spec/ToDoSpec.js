@@ -1,4 +1,4 @@
-describe('Testing the functionality, this is the checklist:', ()=>{
+describe('Testing ToDo.js functionality:', ()=>{
 
 	let todo, item1, item2;
 
@@ -15,10 +15,10 @@ describe('Testing the functionality, this is the checklist:', ()=>{
 
 	it('Should be able to add items', ()=>{
 		expect(todo.getItems().length).toBe(2);
-		
-		expect(todo.getItems().find(item => item.id == 1).id).toBe(1);
-		expect(todo.getItems().find(item => item.id == 1).title).toBe("get milk");
-		expect(todo.getItems().find(item => item.id == 1).complete).toBe(false);
+
+		expect(todo.getItems().find(item => item.id == 1).id).toEqual(1);
+		expect(todo.getItems().find(item => item.id == 1).title).toEqual("get milk");
+		expect(todo.getItems().find(item => item.id == 1).complete).toEqual(false);
 
 		expect(todo.getItems().find(item => item.id == 2).id).toBe(2);
 		expect(todo.getItems().find(item => item.id == 2).title).toBe("get eggs");
@@ -43,10 +43,13 @@ describe('Testing the functionality, this is the checklist:', ()=>{
 
 		expect(todo.getItems().find(item => item.id == 1).complete).toBe(false);
 		expect(todo.getItems().find(item => item.id == 2).complete).toBe(true);
-
-
 	});
 
+
+	it('Should throw exception when appropriate', ()=>{
+		expect(function(){ todo.markComplete(1);  }).not.toThrow();
+		expect(function(){ todo.markComplete(55); }).toThrow();
+	});
 })
 
 
