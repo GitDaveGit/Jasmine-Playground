@@ -8,8 +8,8 @@ describe('Testing ToDo.js functionality:', ()=>{
 		item1 = { id: 1, title: "get milk", complete: false };
 		item2 = { id: 2, title: "get eggs", complete: false };
 
-		todo.addTodo(item1);
-		todo.addTodo(item2);
+		todo.addItem(item1);
+		todo.addItem(item2);
 
 	});
 
@@ -29,9 +29,11 @@ describe('Testing ToDo.js functionality:', ()=>{
 	it('Should be able to delete an item', ()=>{
 		expect(todo.getItems().length).toBe(2);
 
-		todo.delete(2);
+		todo.deleteItemById(2);
 		expect(todo.getItems().length).toBe(1);
 		expect(todo.getItems()[0].id).toBe(1);
+
+		todo.deleteItemById(55);
 	});
 
 
