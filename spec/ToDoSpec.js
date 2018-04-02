@@ -13,6 +13,7 @@ describe('Testing ToDo.js functionality:', ()=>{
 
 	});
 
+
 	it('Should be able to add items', ()=>{
 		expect(todo.getItems().length).toBe(2);
 
@@ -25,6 +26,11 @@ describe('Testing ToDo.js functionality:', ()=>{
 		expect(todo.getItems().find(item => item.id == 2).complete).toBe(false);
 	});
 
+	it('Should not add a duplicate item', function(){
+		dup_item1 = { id: 1, title: "get milk", complete: false };
+		let rc = todo.addItem(dup_item1);
+		expect(rc).toEqual(todo.ERROR_ITEM_ALREADY_EXISTS);
+	});
 
 	it('Should be able to delete an item', ()=>{
 		expect(todo.getItems().length).toBe(2);
