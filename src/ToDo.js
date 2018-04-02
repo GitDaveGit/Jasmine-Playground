@@ -59,4 +59,9 @@ ToDo.prototype.deleteItemById = function(id){
 };
 
 
+ToDo.prototype.deleteCompletedItems = function(){		
+// JIRA TODO-239: Delete completed items
+	this.todo = this.todo.filter(item => item.complete == false);
+};
+
 
