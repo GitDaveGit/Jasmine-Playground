@@ -18,11 +18,11 @@ ToDo.prototype.getItems = function(){
 };
 
 ToDo.prototype.getItemById = function(id){
-	return this.todo.filter(item => item.id == id);
+  return this.todo.filter(item => item.id == id)[0];
 };
 
 ToDo.prototype.getItemByTitle = function(title){
-	return this.todo.filter(item => item.title == title);
+	return this.todo.filter(item => item.title == title)[0];
 };
 
 

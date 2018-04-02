@@ -26,6 +26,31 @@ describe('Testing ToDo.js functionality:', ()=>{
 	});
 
 
+	it('Should be able to find an item by ID', function(){
+		let item = todo.getItemById(2);
+		expect(item.id).toBe(2);
+		expect(item.title).toBe("get eggs");
+		expect(item.complete).toBe(false);
+	});
+
+
+	it('Should be able to find an item by title', function(){
+		let item = todo.getItemByTitle("get milk");
+		expect(item.id).toBe(1);
+		expect(item.title).toBe("get milk");
+		expect(item.complete).toBe(false);
+	});
+
+
+	it('Should gracefully fail when it cannot find an item', function(){
+		let item = todo.getItemById(999);
+		expect(item).toBe(undefined);
+
+		item = todo.getItemByTitle("To Be or Not To Be");
+		expect(item).toBe(undefined);
+	});
+
+
 	it('Should be able to delete an item', ()=>{
 		expect(todo.getItems().length).toBe(2);
 
@@ -33,7 +58,7 @@ describe('Testing ToDo.js functionality:', ()=>{
 		expect(todo.getItems().length).toBe(1);
 		expect(todo.getItems()[0].id).toBe(1);
 
-		todo.deleteItemById(55);
+		todo.deleteItemById(55);	// TODO: return true/false if deleted
 	});
 
 
