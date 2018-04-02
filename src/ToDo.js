@@ -34,3 +34,7 @@ ToDo.prototype.markIncomplete = function(id){
 ToDo.prototype.markComplete = function(id){
   this.todo.find(item => item.id == id).complete = true;
 };
+
+ToDo.prototype.hoser = function(){
+	return false;
+};
