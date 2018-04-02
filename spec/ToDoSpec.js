@@ -11,7 +11,6 @@ describe('Testing ToDo.js functionality:', ()=>{
 
 		todo.addItem(item1);
 		todo.addItem(item2);
-
 	});
 
 	// C R E A T E
