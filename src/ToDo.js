@@ -26,6 +26,10 @@ ToDo.prototype.getItemByTitle = function(title){
 };
 
 
+ToDo.prototype.getNothinForNothin = function(){
+	return undefined;
+};
+
 
 ToDo.prototype.markIncomplete = function(id){
 	this.todo.find(item => item.id == id).complete = false;
