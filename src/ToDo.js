@@ -4,6 +4,8 @@ function ToDo(){
 }
 
 let ERROR_INVALID_ITEM_ID 		= 1
+let ERROR_ITEM_ALREADY_EXISTS 	= 2
+
 
 // C r e a t e
 
@@ -12,6 +14,13 @@ ToDo.prototype.addItem = function(item){
     if (item.id == undefined) {
     	return self.ERROR_INVALID_ITEM_ID;
     }
+
+    // JIRA TODO-213: Check for duplicate item id
+	let dup_item = this.getItemById(item.id);
+	if (dup_item.length > 0) {
+		return self.ERROR_ITEM_ALREADY_EXISTS;
+	} 
+
 	this.todo.push(item);
 	return true;
 };
